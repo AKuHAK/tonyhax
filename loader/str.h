@@ -21,4 +21,4 @@ char * strcpy(char * dest, const char * src);
 
 int strcmp(const char * a, const char * b);
 
-int strncmp (const char * a, const char * b, size_t len);
+int strncmp(const char * a, const char * b, size_t len);

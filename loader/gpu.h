@@ -13,7 +13,7 @@
 #define GPU_DISPLAY_V480 (1 << 2 | GPU_DISPLAY_INTERLACED)
 
 #define GPU_DISPLAY_NTSC (0 << 3)
-#define GPU_DISPLAY_PAL  (1 << 3)
+#define GPU_DISPLAY_PAL (1 << 3)
 
 #define GPU_DISPLAY_15BPP (0 << 4)
 #define GPU_DISPLAY_24BPP (1 << 4)

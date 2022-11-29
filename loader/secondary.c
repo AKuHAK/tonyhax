@@ -30,7 +30,7 @@ void log_bios_version() {
 		version = "1.0 or older";
 	}
 
-	debug_write("Console: %s", bios_is_ps1() ? "PS1": "PS2");
+	debug_write("Console: %s", bios_is_ps1() ? "PS1" : "PS2");
 	debug_write("BIOS: v%s", version);
 }
 
@@ -106,14 +106,13 @@ bool unlock_drive() {
 
 	// Note the kernel's implementation of strlen returns 0 for nulls.
 	if (
-			!backdoor_cmd(0x50, NULL) ||
-			!backdoor_cmd(0x51, "Licensed by") ||
-			!backdoor_cmd(0x52, "Sony") ||
-			!backdoor_cmd(0x53, "Computer") ||
-			!backdoor_cmd(0x54, "Entertainment") ||
-			!backdoor_cmd(0x55, p5_localized) ||
-			!backdoor_cmd(0x56, NULL)
-	) {
+		!backdoor_cmd(0x50, NULL) ||
+		!backdoor_cmd(0x51, "Licensed by") ||
+		!backdoor_cmd(0x52, "Sony") ||
+		!backdoor_cmd(0x53, "Computer") ||
+		!backdoor_cmd(0x54, "Entertainment") ||
+		!backdoor_cmd(0x55, p5_localized) ||
+		!backdoor_cmd(0x56, NULL)) {
 		debug_write("Backdoor failed");
 		return false;
 	}
@@ -358,5 +357,5 @@ void __attribute__((section(".start"))) start() {
 
 	main();
 
-	while(1);
+	while (1) {}
 }

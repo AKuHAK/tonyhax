@@ -54,7 +54,7 @@ const struct cd_operation_t[] CD_OPERATIONS = {
 	{ 0x19, 0x01, 0x02, 0x03 }, // CD_OP_SUBFUNC_Y
 	{ 0x09, 0x00, 0x01, 0x05 }, // CD_OP_PAUSE
 	{ 0x1E, 0x00, 0x01, 0x05 }, // CD_OP_READ_TOC
-	{ 0x1A, 0x00, 0x01, 0x05 }  // CD_OP_GET_ID
+	{ 0x1A, 0x00, 0x01, 0x05 } // CD_OP_GET_ID
 };
 
 uint8_t cd_req_buffer[3];
@@ -88,7 +88,7 @@ void cd_start_op(int op) {
 int cd_check_op(int op) {
 	// Check current interrupts
 	CD_REGS[0] = 0x01;
-	int curints  = CD_REGS[3] & 7;
+	int curints = CD_REGS[3] & 7;
 	int curints2 = CD_REGS[3] & 7;
 	if (curints != curints2 || curints == 0) {
 		return 0;
@@ -117,7 +117,7 @@ int cd_check_op(int op) {
 		// Read fail reason
 		cd_reply_buf[0] = CD_REGS[1];
 		cd_reply_buf[1] = CD_REGS[1];
-		
+
 		// Restore all interrupts
 		CD_REGS[0] = 0x01;
 		CD_REGS[2] = 0x1F;
@@ -128,7 +128,7 @@ int cd_check_op(int op) {
 			return CD_RET_TRAY_OPEN;
 		}
 
-		// Unknown 
+		// Unknown
 		return CD_RET_FAIL;
 	} else {
 		// Read the reply
@@ -328,6 +328,7 @@ void antipiracy_main(int blocking) {
 					default:
 						retval = 7;
 				}
+		}
 	} while (blocking && retval != 0);
 
 	return retval;

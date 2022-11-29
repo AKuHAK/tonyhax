@@ -23,7 +23,7 @@ void gpu_wait_vblank(void) {
 		I_STAT = ~INT_VBLANK;
 	}
 
-	while (!(I_STAT & INT_VBLANK));
+	while (!(I_STAT & INT_VBLANK)) {}
 }
 
 void gpu_reset(void) {

@@ -12,7 +12,7 @@ inline void cd_set_page(uint8_t page) {
 void cd_command(uint_fast8_t cmd, const uint8_t * params, uint_fast8_t params_len) {
 
 	// Wait for previous command to finish, if any
-	while (CD_REGS[0] & 0x80);
+	while (CD_REGS[0] & 0x80) {}
 
 	// Switch to page 0
 	cd_set_page(0);
@@ -46,7 +46,7 @@ void cd_command(uint_fast8_t cmd, const uint8_t * params, uint_fast8_t params_le
 uint_fast8_t cd_wait_int(void) {
 
 	// Wait for command to finish, if any
-	while (CD_REGS[0] & 0x80);
+	while (CD_REGS[0] & 0x80) {}
 
 	// Switch to page 1
 	cd_set_page(1);
@@ -107,7 +107,7 @@ bool cd_drive_reset() {
 	}
 
 	// Need to wait for some cycles before it springs back to life
-	for (int i = 0; i < 0x400000; i++);
+	for (int i = 0; i < 0x400000; i++) {}
 
 	return true;
 }

@@ -126,12 +126,12 @@ void ExitCriticalSection();
 /**
  * File for read access.
  */
-#define FILE_READ     0x00000001
+#define FILE_READ 0x00000001
 
 /**
  * File for write access.
  */
-#define FILE_WRITE    0x00000002
+#define FILE_WRITE 0x00000002
 
 /**
  * When reading from TTY, returns without waiting to read requested amount of bytes.
@@ -141,7 +141,7 @@ void ExitCriticalSection();
 /**
  * Create a new file.
  */
-#define FILE_CREATE   0x00000200
+#define FILE_CREATE 0x00000200
 
 /**
  * Read asynchronously from memory card.
